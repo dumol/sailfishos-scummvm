@@ -98,6 +98,7 @@ BuildRequires:  pkgconfig(mad)
 BuildRequires:  pkgconfig(libmpeg2)
 BuildRequires:  pkgconfig(libmikmod)
 BuildRequires:  pkgconfig(fluidsynth)
+BuildRequires:  pkgconfig(fluidlite)
 %endif
 
 Requires:   scummvm-data
