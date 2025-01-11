@@ -322,13 +322,13 @@ Categories:
 
 %if "%{?vendor}" == "chum"
 %package -n soundfont-roland-sc55
-Summary:   Roland SC-55 soundfont from ScummVM
+Summary:   Roland SC-55 MIDI SoundFont from ScummVM
 BuildArch: noarch
 
-%description soundfont-roland-sc55
+%description -n soundfont-roland-sc55
 Roland SC-55 soundfont from ScummVM
 
-Title: Roland SC-55 soundfont
+Title: Roland SC-55 MIDI SoundFont
 Type: addon
 Categories:
   - Audio
@@ -401,8 +401,9 @@ mkdir -p %{buildroot}%{_sysconfdir}/scummvm/
 cp %{S:2} %{buildroot}%{_sysconfdir}/scummvm/scummvm.ini
 
 %if "%{?vendor}" == "chum"
+# built when FluidSynth was found:
 mkdir -p %{buildroot}%{_datadir}/sounds/sf2
-mv %{_datadir}/%{orgname}/scummvm/Roland_SC-55.sf2 %{buildroot}%{_datadir}/sounds/sf2/Roland_SC-55.sf2
+mv %{buildroot}%{_datadir}/%{orgname}/scummvm/Roland_SC-55.sf2 %{buildroot}%{_datadir}/sounds/sf2/Roland_SC-55.sf2
 %endif
 
 %files
@@ -506,6 +507,6 @@ mv %{_datadir}/%{orgname}/scummvm/Roland_SC-55.sf2 %{buildroot}%{_datadir}/sound
 %{_datadir}/%{orgname}/scummvm/fonts-cjk.dat
 
 %if "%{?vendor}" == "chum"
-%files soundfont-roland-sc55
+%files -n soundfont-roland-sc55
 %{_datadir}/sounds/sf2/Roland_SC-55.sf2
 %endif
